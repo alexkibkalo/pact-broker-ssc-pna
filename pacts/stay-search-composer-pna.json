@@ -1,0 +1,465 @@
+{
+  "provider": {
+    "name": "pna"
+  },
+  "consumer": {
+    "name": "stay-search-composer"
+  },
+  "interactions": [
+    {
+      "description": "Returns Alternate Room and Board options for  selected Stay Offer",
+      "request": {
+        "method": "POST",
+        "path": "/api/qp/stays/v2/offers/48613444-072e-44e5-a7fa-af9f0139e933/A0482083/2022-03-01/alternatives/room"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "totalOffers": 1,
+          "offers": [
+            {
+              "productId": "48613444-072e-44e5-a7fa-af9f0139e933",
+              "brand": "TUI_BE",
+              "channelTarget": "B2B",
+              "holidayStartDate": "2022-03-01",
+              "holidayEndDate": "2022-03-06",
+              "numberOfNights": 5,
+              "totalParticipants": 2,
+              "currency": "EUR",
+              "totalPrice": 1980.0,
+              "totalPricePerPerson": 990.0,
+              "totalDiscount": 138.0,
+              "totalDiscountPerPerson": 69.0,
+              "totalDeposit": 594.0,
+              "totalDepositPerPerson": 297.0,
+              "accommodations": [
+                {
+                  "productComponentGroupIndex": 1,
+                  "sourcedAccommodationCode": "A0482083",
+                  "arrivalDate": "2022-03-01",
+                  "numberOfNights": 5,
+                  "totalParticipants": 2,
+                  "units": [
+                    {
+                      "productUnitId": "793aab31-90d6-4c4f-ac16-da851e1e6d20",
+                      "sourcedUnitId": "b3fb4a30-7c7a-46db-b592-64f86fbf6809",
+                      "boardCode": "GT06-AI_ST06-PL",
+                      "boardId": "a50856bc-5796-425d-80fc-1bebc62821cb",
+                      "totalUnitPrice": 1980.0,
+                      "totalUnitPricePerPerson": 990.0,
+                      "availability": 10,
+                      "freeChild": false,
+                      "participants": [
+                        {
+                          "participantId": 1,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        },
+                        {
+                          "participantId": 2,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        }
+                      ],
+                      "alternateBoards": [
+                        {
+                          "alternateBoardPriceDifference": 100,
+                          "alternateBoardPerPersonPriceDifference": 50,
+                          "boardCode": "GT06-HB_ST06-PL",
+                          "boardId": "5e3e4a2e-c957-43bf-ae7d-de7b7c674a4e"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "providerStates": [
+        {
+          "name": "test"
+        }
+      ]
+    },
+    {
+      "description": "Returns Cheapest per day offers for single accom to display calendar view",
+      "request": {
+        "method": "POST",
+        "path": "/api/qp/stays/v2/offers/A0482083"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "totalOffers": 1,
+          "offers": [
+            {
+              "productId": "48613444-072e-44e5-a7fa-af9f0139e933",
+              "brand": "TUI_BE",
+              "channelTarget": "B2B",
+              "holidayStartDate": "2022-03-01",
+              "holidayEndDate": "2022-03-06",
+              "numberOfNights": 5,
+              "totalParticipants": 2,
+              "currency": "EUR",
+              "totalPrice": 1980.0,
+              "totalPricePerPerson": 990.0,
+              "totalDeposit": 594.0,
+              "totalDepositPerPerson": 297.0,
+              "totalDiscount": 138.0,
+              "totalDiscountPerPerson": 69.0,
+              "accommodations": [
+                {
+                  "productComponentGroupIndex": 1,
+                  "sourcedAccommodationCode": "A0482083",
+                  "arrivalDate": "2022-03-01",
+                  "numberOfNights": 5,
+                  "totalParticipants": 2,
+                  "units": [
+                    {
+                      "productUnitId": "793aab31-90d6-4c4f-ac16-da851e1e6d20",
+                      "boardId": "a50856bc-5796-425d-80fc-1bebc62821cb",
+                      "boardCode": "GT06-AI_ST06-PL",
+                      "availability": 10,
+                      "participants": [
+                        {
+                          "participantId": 1,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        }
+                      ],
+                      "sourcedUnitId": "b3fb4a30-7c7a-46db-b592-64f86fbf6809",
+                      "sourcingCategory": "CONTRACTED",
+                      "sourcingSystem": "TUIAccommodationSourcing",
+                      "freeChild": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "facets": {
+            "boardIds": [
+              "7f5a4bec-9757-4637-a7eb-b5035599bbe1",
+              "fbe2fbc1-2fb6-4208-83b6 94b63a97fd89",
+              "5e3e4a2e-c957-43bf-ae7d-de7b7c674a4e"
+            ],
+            "boardCodes": [
+              "GT06-HB_ST06-PL",
+              "GT06-AI",
+              "GT06-BR"
+            ]
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "test"
+        }
+      ]
+    },
+    {
+      "description": "Returns list  of Stays with cheapest price offer & facets",
+      "request": {
+        "method": "POST",
+        "path": "/api/qp/stays/v2/offers"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "totalOffers": 3,
+          "offers": [
+            {
+              "productId": "c245c2a1-092a-4fc3-b2b9-85a3f1383b9e",
+              "brand": "TUI_BE",
+              "channelTarget": "B2B",
+              "holidayStartDate": "2022-03-01",
+              "holidayEndDate": "2022-03-02",
+              "numberOfNights": 1,
+              "totalParticipants": 2,
+              "currency": "EUR",
+              "totalPrice": 318.0,
+              "totalPricePerPerson": 159.0,
+              "totalDiscount": 0.0,
+              "totalDiscountPerPerson": 0.0,
+              "totalDeposit": 318.0,
+              "totalDepositPerPerson": 159.0,
+              "accommodations": [
+                {
+                  "productComponentGroupIndex": 1,
+                  "sourcedAccommodationCode": "A0482083",
+                  "arrivalDate": "2022-03-01",
+                  "numberOfNights": 1,
+                  "totalParticipants": 2,
+                  "units": [
+                    {
+                      "productUnitId": "c3ff4855-a83b-4f49-8807-415d735b30ec",
+                      "boardId": "a8739bb3-c124-4185-841c-03d824a8409b",
+                      "boardCode": "GT06-AO",
+                      "availability": 87,
+                      "freeChildPlace": false,
+                      "participants": [
+                        {
+                          "participantId": 2,
+                          "participantAge": 32,
+                          "roomNumber": 1
+                        },
+                        {
+                          "participantId": 1,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        }
+                      ],
+                      "totalUnitPrice": null,
+                      "totalUnitPricePerPerson": null,
+                      "freeChild": false,
+                      "alternateBoards": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "8658c504-8ca2-4636-8efd-596e06db9002",
+              "brand": "TUI_BE",
+              "channelTarget": "B2B",
+              "holidayStartDate": "2022-03-01",
+              "holidayEndDate": "2022-03-04",
+              "numberOfNights": 3,
+              "totalParticipants": 2,
+              "currency": "EUR",
+              "totalPrice": 386.0,
+              "totalPricePerPerson": 193.0,
+              "totalDiscount": 0.0,
+              "totalDiscountPerPerson": 0.0,
+              "totalDeposit": 386.0,
+              "totalDepositPerPerson": 193.0,
+              "accommodations": [
+                {
+                  "productComponentGroupIndex": 1,
+                  "sourcedAccommodationCode": "A0531725",
+                  "arrivalDate": "2022-03-01",
+                  "numberOfNights": 3,
+                  "totalParticipants": 2,
+                  "units": [
+                    {
+                      "productUnitId": "c8a4f780-ed08-4724-b80d-dff23f308540",
+                      "boardId": "a8739bb3-c124-4185-841c-03d824a8409b",
+                      "boardCode": "GT06-AO",
+                      "availability": 26,
+                      "freeChildPlace": false,
+                      "participants": [
+                        {
+                          "participantId": 2,
+                          "participantAge": 32,
+                          "roomNumber": 1
+                        },
+                        {
+                          "participantId": 1,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        }
+                      ],
+                      "totalUnitPrice": null,
+                      "totalUnitPricePerPerson": null,
+                      "freeChild": false,
+                      "alternateBoards": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "41f197b3-c580-4ffc-9714-23c89169db03",
+              "brand": "TUI_BE",
+              "channelTarget": "B2B",
+              "holidayStartDate": "2022-03-01",
+              "holidayEndDate": "2022-03-02",
+              "numberOfNights": 1,
+              "totalParticipants": 2,
+              "currency": "EUR",
+              "totalPrice": 92.0,
+              "totalPricePerPerson": 46.0,
+              "totalDiscount": 0.0,
+              "totalDiscountPerPerson": 0.0,
+              "totalDeposit": 92.0,
+              "totalDepositPerPerson": 46.0,
+              "accommodations": [
+                {
+                  "productComponentGroupIndex": 1,
+                  "sourcedAccommodationCode": "A0976941",
+                  "arrivalDate": "2022-03-01",
+                  "numberOfNights": 1,
+                  "totalParticipants": 2,
+                  "units": [
+                    {
+                      "productUnitId": "c93cbf61-7a7f-48b9-a8c7-2ad5757e2ff1",
+                      "boardId": "1d8d0856-0b4e-4b4a-aa28-63266e963050",
+                      "boardCode": "GT06-AI",
+                      "availability": 27,
+                      "freeChildPlace": false,
+                      "participants": [
+                        {
+                          "participantId": 2,
+                          "participantAge": 32,
+                          "roomNumber": 1
+                        },
+                        {
+                          "participantId": 1,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        }
+                      ],
+                      "totalUnitPrice": null,
+                      "totalUnitPricePerPerson": null,
+                      "freeChild": false,
+                      "alternateBoards": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "facets": {
+            "boardIds": [
+              "a8739bb3-c124-4185-841c-03d824a8409b",
+              "1d8d0856-0b4e-4b4a-aa28-63266e963050"
+            ],
+            "boardCodes": [
+
+            ],
+            "totalPriceRange": {
+              "min": 92.0,
+              "max": 386.0
+            },
+            "priceRangePerPerson": {
+              "min": 46.0,
+              "max": 193.0
+            },
+            "totalDiscountRange": {
+              "min": 0.0,
+              "max": 0.0
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "test"
+        }
+      ]
+    },
+    {
+      "description": "Returns list of unique Stays with cheapest price offer & facets",
+      "request": {
+        "method": "POST",
+        "path": "/api/qp/stays/v2/offers/c245c2a1-092a-4fc3-b2b9-85a3f1383b9e/A0482083/2022-03-01"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "totalOffers": 1,
+          "offers": [
+            {
+              "productId": "c245c2a1-092a-4fc3-b2b9-85a3f1383b9e",
+              "brand": "TUI_BE",
+              "channelTarget": "B2B",
+              "holidayStartDate": "2022-03-01",
+              "holidayEndDate": "2022-03-02",
+              "numberOfNights": 1,
+              "totalParticipants": 2,
+              "currency": "EUR",
+              "totalPrice": 318.0,
+              "totalPricePerPerson": 159.0,
+              "totalDiscount": 0.0,
+              "totalDiscountPerPerson": 0.0,
+              "totalDeposit": 318.0,
+              "totalDepositPerPerson": 159.0,
+              "accommodations": [
+                {
+                  "productComponentGroupIndex": 1,
+                  "sourcedAccommodationCode": "A0482083",
+                  "arrivalDate": "2022-03-01",
+                  "numberOfNights": 1,
+                  "totalParticipants": 2,
+                  "units": [
+                    {
+                      "productUnitId": "c3ff4855-a83b-4f49-8807-415d735b30ec",
+                      "boardId": "a8739bb3-c124-4185-841c-03d824a8409b",
+                      "boardCode": "GT06-AO",
+                      "availability": 87,
+                      "freeChildPlace": false,
+                      "participants": [
+                        {
+                          "participantId": 2,
+                          "participantAge": 32,
+                          "roomNumber": 1
+                        },
+                        {
+                          "participantId": 1,
+                          "participantAge": 30,
+                          "roomNumber": 1
+                        }
+                      ],
+                      "totalUnitPrice": null,
+                      "totalUnitPricePerPerson": null,
+                      "freeChild": false,
+                      "alternateBoards": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "facets": {
+            "boardIds": [
+              "a8739bb3-c124-4185-841c-03d824a8409b",
+              "1d8d0856-0b4e-4b4a-aa28-63266e963050"
+            ],
+            "boardCodes": [
+
+            ],
+            "totalPriceRange": {
+              "min": 92.0,
+              "max": 386.0
+            },
+            "priceRangePerPerson": {
+              "min": 46.0,
+              "max": 193.0
+            },
+            "totalDiscountRange": {
+              "min": 0.0,
+              "max": 0.0
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "test"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.1.7"
+    }
+  }
+}
