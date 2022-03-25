@@ -1,6 +1,18 @@
 version: '3'
 services:
 
+  pact-broker:
+    image: pactfoundation/pact-broker
+    ports:
+      - "9292:9292"
+    environment:
+      PACT_BROKER_DATABASE_USERNAME: postgres
+      PACT_BROKER_DATABASE_PASSWORD: admin
+      PACT_BROKER_DATABASE_HOST: host.docker.internal
+      PACT_BROKER_DATABASE_NAME: postgres
+      PACT_BROKER_DATABASE_PORT: 5000
+    depends_on:
+      - postgres
 
   postgres:
     container_name: postgres
@@ -13,5 +25,7 @@ services:
     hostname: localhost
     ports:
       - 5000:5432
-    networks:
-      - queueon
+
+volumes:
+  postgres:
+  pact-broker:
